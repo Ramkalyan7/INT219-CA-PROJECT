@@ -1,0 +1,22 @@
+<div class="px-4">
+    <h2 class="p-2 mt-10 text-2xl">
+        Category
+    </h2>
+    <div class="flex gap-10  justify-around ">
+        <div *ngFor="let service of hs" >
+            <div class="border rounded-xl w-56  mt-2 p-2 flex justify-between hover:scale-105 transition-all cursor-pointer hover:shadow ">
+                <div>
+                    <img src="{{ service.img }}" class="w-12 mx-2" alt="1" />
+                </div>
+                <div>
+                    <h1 class=" flex flex-col">
+                        <span class="text-3xl font-semibold absolute -mx-4 "> {{ service.name }}</span> 
+                        <span class="tracking-wider mt-6">services</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

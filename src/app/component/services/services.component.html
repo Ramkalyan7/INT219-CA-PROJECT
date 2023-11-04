@@ -1,0 +1,22 @@
+<section class="text-gray-600 body-font h-[80vh] mx-auto my-24">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap w-full mb-20">
+        <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Explore Our Services</h1>
+          <div class="h-1 w-20 bg-yellow-300 hover:w-56 transition-all rounded"></div>
+        </div>
+        <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Escape to our spa and salon for a world of relaxation. From massages to beauty treatments, our dedicated team ensures your wellness and pampering.</p>
+      </div>
+      <div class="flex flex-wrap -m-4">
+        <div *ngFor="let service of services" class="xl:w-1/4 md:w-1/2 p-4  ">
+          <div class="shadow-lg hover:shadow-xl border-2 cursor-pointer border-gray-500/30 p-6 h-[30rem] rounded-lg hover:scale-105 transition-all">
+            <img class="h-40 rounded w-full object-cover object-center mb-6" [src]="service.image" alt="content">
+            <!-- <h3 class="tracking-widest text-black w-fit bg-yellow-400 text-[.5rem] font-medium title-font">{{ service.subtitle }}</h3> -->
+            <h2 class="text-lg text-gray-900 bg-yellow-400 w-fit font-medium title-font mb-4">{{ service.title }}</h2>
+            <p class="leading-relaxed text-base">{{ service.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

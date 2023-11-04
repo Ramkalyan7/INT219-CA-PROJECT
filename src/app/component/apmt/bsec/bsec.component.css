@@ -1,0 +1,22 @@
+/* music-search.component.css */
+.audio-player audio {
+    width: 100%;
+    height: 50px; /* You can adjust the height as needed */
+    background-color: transparent; /* Make the background transparent */
+    border: none; /* Remove the border */
+  }
+  
+  .audio-player audio::-webkit-media-controls {
+    display: none; /* Hide the default audio controls */
+  }
+  
+  /* Style the play/pause button */
+  .audio-player audio::-webkit-media-controls-play-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; /* Adjust the size of the play button */
+    color: #333; /* Adjust the color of the play button */
+    cursor: pointer;
+  }
+  

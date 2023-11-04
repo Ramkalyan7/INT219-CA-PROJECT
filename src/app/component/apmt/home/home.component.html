@@ -1,0 +1,70 @@
+<div *ngIf="isAppointmentRoute()">
+  <div class="p-4">
+    <h1
+      class="text-3xl font-bold mb-4 border-b-2 py-2 w-fit text-gray-800 hover:w-full transition-all duration-500"
+    >
+      Book a New Appointment
+    </h1>
+
+    <div class="grid grid-cols-2 gap-7 mt-6 mx-4 cursor-pointer">
+      <div
+        *ngFor="let service of services"
+        class="p-4 border rounded-lg hover:shadow-lg transition duration-300 bg-white text-gray-700"
+      >
+        <h2 class="text-lg font-semibold text-gray-800">{{ service.name }}</h2>
+        <p class="mt-2">{{ service.description }}</p>
+      </div>
+    </div>
+
+    <!-- Trending Services Section -->
+    <div class="mt-8">
+      <h2
+        class="text-3xl font-bold mb-4 border-b-2 py-2 w-fit text-gray-800 hover:w-full transition-all duration-500"
+      >
+        Trending Services
+      </h2>
+
+      <div class="grid grid-cols-4 gap-8">
+        <div
+          *ngFor="let trendingService of trendingServices"
+          class="p-4 border rounded-lg hover:shadow transition duration-300 bg-white text-gray-700"
+        >
+          <img
+            [src]="trendingService.imageUrl"
+            alt="{{ trendingService.name }}"
+            class="w-full h-48 object-cover rounded-md mb-4"
+          />
+          <h3 class="text-lg font-semibold text-gray-800">
+            {{ trendingService.name }}
+          </h3>
+          <p class="mt-2">{{ trendingService.description }}</p>
+
+          <button
+            class="bg-gray-900 text-white font-semibold w-full mt-4 py-2 px-4 rounded-md hover:bg-orange-500 transition duration-300"
+          >
+            <a routerLink="/appointment/book"> Book Now </a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Location Map Section -->
+  <div class="mt-8 p-4 border rounded-lg">
+    <h2 class="text-3xl font-bold text-gray-800 mb-2">Our Location</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22460.63480588495!2d-0.15674037799675068!3d51.52781217494596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDQ0JzA0LjIiTiAwwrAyNycyOC45Ilc!5e0!3m2!1sen!2suk!4v1667045812342!5m2!1sen!2suk"
+      width="100%"
+      height="300"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
+  </div>
+</div>
+
+<div *ngIf="isAppointmentBookRoute()">
+  <div>
+    <app-bsec></app-bsec>
+  </div>
+</div>

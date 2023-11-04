@@ -1,0 +1,99 @@
+<div>
+    <div class="p-4">
+        <h1
+            class="text-2xl font-bold mb-4 border-b-2 py-2 w-fit hover:w-full transition-all duration-1000 delay-300 text-gray-900">
+            Book an Appointment
+        </h1>
+
+        <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 border rounded-lg hover:shadow-lg transition duration-300">
+                <h2 class="text-lg font-semibold">Service Details</h2>
+                <p class="mt-2 text-gray-600">Select the service and provider you'd like to book an appointment with:
+                </p>
+
+                <!-- Service Selection -->
+                <select class="w-full rounded-md border px-3 py-2 mt-2" [(ngModel)]="selectedService"
+                    name="selectedService">
+                    <option value="service1">Service 1</option>
+                    <option value="service2">Service 2</option>
+                </select>
+
+                <!-- Service Provider Selection -->
+                <select class="w-full rounded-md border px-3 py-2 mt-2" [(ngModel)]="selectedProvider"
+                    name="selectedProvider">
+                    <option value="provider1">Provider 1</option>
+                    <option value="provider2">Provider 2</option>
+                    <!-- Add more provider options here -->
+                </select>
+            </div>
+
+            <div class="p-4 border rounded-lg hover:shadow-lg transition duration-300">
+                <h2 class="text-lg font-semibold">Appointment Information</h2>
+                <p class="mt-2 text-gray-600">Please provide your appointment details:</p>
+
+                <!-- Date and Time Selection -->
+                <input type="datetime-local" class="w-full rounded-md border px-3 py-2 mt-2"
+                    [(ngModel)]="appointmentDateTime" name="appointmentDateTime">
+
+                <!-- Your Information -->
+                <input type="text" class="w-full rounded-md border px-3 py-2 mt-2" placeholder="Your Name"
+                    [(ngModel)]="yourName" name="yourName">
+                <input type="email" class="w-full rounded-md border px-3 py-2 mt-2" placeholder="Email"
+                    [(ngModel)]="email" name="email">
+                <input type="tel" class="w-full rounded-md border px-3 py-2 mt-2" placeholder="Phone Number"
+                    [(ngModel)]="phoneNumber" name="phoneNumber">
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 mt-4 transition duration-300 text-gray-900"
+                    (click)="onSubmit()">Book Appointment</button>
+            </div>
+        </div>
+
+        <!-- Search Box -->
+        <div class="p-4 mt-10 border rounded-lg hover:shadow-lg transition duration-300">
+            <h2 class="text-lg font-semibold">Spotify Artist Search</h2>
+            <p class="mt-2 text-gray-600">Search for tracks on Spotify:</p>
+
+            <input type="text" class="w-full rounded-md border px-3 py-2 mt-2" placeholder="Search for tracks"
+                [(ngModel)]="searchQuery" name="searchQuery">
+
+            <!-- Search Button -->
+            <button type="button"
+                class="bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 mt-2 transition duration-300 text-gray-900"
+                (click)="searchArtist()">Search</button>
+        </div>
+
+
+        <div *ngIf="searchResults && searchResults.length > 0" class="p-4 mt-4 border rounded-lg hover:shadow-lg transition duration-300">
+            <h2 class="text-lg font-semibold">Search Results</h2>
+            <ul class="flex flex-wrap gap-6 p-2">
+              <li class="flex" *ngFor="let track of searchResults">
+                <div class="mt-2 shadow rounded-xl">
+                  <img [src]="track.album.images[0].url" alt="Track Image" class="w-56 h-56">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-lg font-semibold w-52">{{ track.name }}</p>
+                    <div class="audio-player">
+                      <button (click)="toggleAudio(track.preview_url)">
+                        <ng-container *ngIf="!isPlaying; else pauseButton">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-play" viewBox="0 0 16 16">
+                            <path d="M4.293 5.293a1 1 0 0 1 1.414 0l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414-1.414L8.586 8 4.293 3.707a1 1 0 0 1 0-1.414z"/>
+                          </svg>
+                        </ng-container>
+                        <ng-template #pauseButton>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-pause" viewBox="0 0 16 16">
+                            <path d="M6 5a1 1 0 0 1 1 1v4a1 1 0 0 1-2 0V6a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v4a1 1 0 0 1-2 0V6a1 1 0 0 1 1-1z"/>
+                          </svg>
+                        </ng-template>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+  
+  
+    </div>
+</div>

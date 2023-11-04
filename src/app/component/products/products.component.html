@@ -1,0 +1,11 @@
+<div class="flex gap-2" *ngIf="isProductRoute(); else dashboard">
+  <div class="fixed w-2/12">
+    <app-nav></app-nav>
+  </div>
+  <div class="w-10/12 ml-64">
+    <app-product-card></app-product-card>
+  </div>
+</div>
+<ng-template #dashboard>
+  <app-product-card></app-product-card>
+</ng-template>
